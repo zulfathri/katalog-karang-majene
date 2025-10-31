@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById("item-details-modal");
     const closeModalButton = document.querySelector(".close-button");
     const stationListContainer = document.getElementById("station-list");
+    const toggleListButton = document.getElementById("toggle-list-btn");
     
     // --- Initialization ---
     initMap();
@@ -25,6 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Event listener BARU untuk tombol collapse sidebar
+    toggleListButton.addEventListener('click', () => {
+        // Cukup tambahkan/hapus class 'list-collapsed' pada elemen daftar
+        stationListContainer.classList.toggle('list-collapsed');
+        
+        // Ganti teks tombolnya
+        if (stationListContainer.classList.contains('list-collapsed')) {
+            toggleListButton.textContent = '+';
+            toggleListButton.title = 'Bentangkan Daftar';
+        } else {
+            toggleListButton.textContent = '-';
+            toggleListButton.title = 'Ciutkan Daftar';
+        }
+    });
     // --- Functions ---
     
     /**
@@ -195,4 +210,5 @@ document.addEventListener('DOMContentLoaded', () => {
         // Tampilkan modal
         modal.style.display = "block";
     }
+
 });
