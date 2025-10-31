@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalButton = document.querySelector(".close-button");
     const stationListContainer = document.getElementById("station-list");
     const toggleListButton = document.getElementById("toggle-list-btn");
+    const sidebar = document.querySelector(".sidebar");
     
     // --- Initialization ---
     initMap();
@@ -28,18 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listener BARU untuk tombol collapse sidebar
     toggleListButton.addEventListener('click', () => {
-        // Cukup tambahkan/hapus class 'list-collapsed' pada elemen daftar
-        stationListContainer.classList.toggle('list-collapsed');
+        // Toggle class 'sidebar-collapsed' pada elemen .sidebar
+        sidebar.classList.toggle('sidebar-collapsed');
         
-        // Ganti teks tombolnya
-        if (stationListContainer.classList.contains('list-collapsed')) {
-            toggleListButton.textContent = '+';
-            toggleListButton.title = 'Bentangkan Daftar';
+        // Ganti teks tombolnya (Panah Kiri / Panah Kanan)
+        if (sidebar.classList.contains('sidebar-collapsed')) {
+            toggleListButton.innerHTML = '&#9654;'; // Panah kanan
+            toggleListButton.title = 'Bentangkan Sidebar';
         } else {
-            toggleListButton.textContent = '-';
-            toggleListButton.title = 'Ciutkan Daftar';
+            toggleListButton.innerHTML = '&#9664;'; // Panah kiri
+            toggleListButton.title = 'Ciutkan Sidebar';
         }
     });
+    
     // --- Functions ---
     
     /**
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Tambahkan marker untuk setiap stasiun
+        // marker untuk setiap stasiun
         stasiunData.forEach(stasiun => {
             const marker = L.marker(stasiun.koordinat).addTo(map);
             
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Mengisi sidebar dengan daftar stasiun.
+     * sidebar dengan daftar stasiun.
      */
     function populateStationList() {
         stationListContainer.innerHTML = ''; // Bersihkan daftar
@@ -212,3 +214,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
