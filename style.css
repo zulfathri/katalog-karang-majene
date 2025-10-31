@@ -204,4 +204,53 @@ header h2 {
 .nav-buttons {
     display: flex;
     gap: 10px; /* Memberi jarak antar tombol */
+
+}
+
+/* 1. header sidebar agar judul dan tombol sejajar */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    /* pindahan padding dari h3 asli */
+}
+
+/* 2. Hapus style bawaan dari h3 yang sudah dipindah */
+.sidebar-header h3 {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+}
+
+/* 3. Desain tombol toggle */
+#toggle-list-btn {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 50%; /* Membuatnya bulat */
+    width: 26px;
+    height: 26px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    line-height: 26px; /* Menengahkan +/- */
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#toggle-list-btn:hover {
+    background-color: #c7c7c7;
+}
+
+#toggle-list-btn:active {
+    transform: scale(0.9);
+}
+
+/* Class yg  menyembunyikan daftar */
+#station-list.list-collapsed {
+    display: none;
 }
