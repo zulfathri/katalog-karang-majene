@@ -1,0 +1,88 @@
+/* Menggunakan font yang sama dari style.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    background-color: #f4f4f4;
+    overflow-y: auto; /* Izinkan scroll di halaman ini */
+}
+
+/* Modifikasi header untuk tombol navigasi */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px; /* Jarak antar tombol */
+}
+
+/* Kontainer Utama Galeri */
+.gallery-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.gallery-intro {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Grid untuk Kartu Galeri */
+#gallery-grid {
+    display: grid;
+    /* Membuat grid responsif: 
+       - Coba tampilkan kolom selebar 320px
+       - 'auto-fill' akan mengisi sebanyak mungkin
+       - '1fr' berarti jika tidak muat, akan mengisi lebar penuh
+    */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px; /* Jarak antar kartu */
+}
+
+/* Tampilan Kartu */
+.gallery-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* Agar gambar tidak keluar dari radius */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px); /* Efek sedikit terangkat */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Memastikan gambar pas tanpa distorsi */
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #00796B; /* Warna hijau tema */
+    font-weight: 500;
+}
+
+.card-content p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+}
